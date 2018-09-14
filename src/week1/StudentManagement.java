@@ -6,7 +6,7 @@ public class StudentManagement {
     Student[] s=new Student[100];
     public boolean sameGroup(Student s1, Student s2) {
         // TODO:
-        return s1.getGroup()==s2.getGroup(); // xóa dòng này sau khi cài đặt
+        return s1.getGroup().equals(s2.getGroup()); // xóa dòng này sau khi cài đặt
     }
 
     void studentsByGroup() {
@@ -16,7 +16,7 @@ public class StudentManagement {
         for(i=0;s[i]!=null;i++)
         {
             for(j=i+1;s[j]!=null;j++){
-                if(s[i].getGroup()>s[j].getGroup()){
+                if(s[i].getGroup().compareTo(s[j].getGroup())<0){
                     x=s[i];
                     s[i]=s[j];
                     s[j]=x;
@@ -26,7 +26,7 @@ public class StudentManagement {
         System.out.println("Ten Lop: "+s[0].getGroup());
         for(i=1;s[i]!=null;i++){
         s[i].getInfo();    
-        if(s[i].getGroup()!=s[i+1].getGroup()) System.out.println("Ten Lop: "+s[i+1].getGroup());
+        if(!s[i].getGroup().equals(s[i+1].getGroup())) System.out.println("Ten Lop: "+s[i+1].getGroup());
         }
     }
 
