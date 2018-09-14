@@ -17,6 +17,18 @@ public class Student {
     public void setEmail(String s) {
         email=s;
     }
+    public String getName(){
+        return name;
+    }
+    public String getId(){
+        return id;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public String getGroup(){
+        return group;
+    }
     /**
      * Constructor 1
      */
