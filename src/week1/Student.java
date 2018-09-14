@@ -37,7 +37,7 @@ public class Student {
         name="Student";
         id="000";
         group="INT22041";
-        emai="uet@vnu.edu.vn";
+        email="uet@vnu.edu.vn";
     }
 
     /**
@@ -68,7 +68,7 @@ public class Student {
 
     String getInfo() {
         // TODO:
-        System.out.println(+name+"\n"+id+"\n"+group+"\n"+email);
+        System.out.println(name+"\n"+id+"\n"+group+"\n"+email);
         return null; // xóa dòng này sau khi cài đặt
     }
 }
