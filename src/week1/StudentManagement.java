@@ -8,52 +8,85 @@ public class StudentManagement {
         // TODO:
         return s1.getGroup().equals(s2.getGroup()); // xóa dòng này sau khi cài đặt
     }
-
+    int number(){ //tổng số sinh viên
+        int i=0;
+        while(s[i]!=null) i++;
+        return i;
+    }
+    void in(){//in ra danh sách theo lớp
+        Student x=new Student();
+        int i;
+        x=s[0];
+        System.out.println("Ten lop: "+s[0].getGroup());
+        for(i=0;i<number();i++){
+            if(!sameGroup(x,s[i])){
+                System.out.println("Ten lop: "+s[i].getGroup());
+                x=s[i];
+                i--;
+            } else{
+                s[i].getInfo();
+            }
+        }
+        
+    }
     void studentsByGroup() {
         // TODO:
         int i,j;
-        Student x;
-        for(i=0;s[i]!=null;i++)
+        Student x=new Student();
+        for(i=0;i<number()-1;i++)// sắp xếp theo lớp
         {
-            for(j=i+1;s[j]!=null;j++){
-                if(s[i].getGroup().compareTo(s[j].getGroup())<0){
+            for(j=i+1;j<number();j++){
+                if(s[i].getGroup().compareTo(s[j].getGroup())>0){
                     x=s[i];
                     s[i]=s[j];
                     s[j]=x;
                 }
             }
         }
-        System.out.println("Ten Lop: "+s[0].getGroup());
-        for(i=1;s[i]!=null;i++){
-        s[i].getInfo();    
-        if(!s[i].getGroup().equals(s[i+1].getGroup())) System.out.println("Ten Lop: "+s[i+1].getGroup());
-        }
+        in();
+        
     }
 
     void removeStudent(String id) {
         // TODO:
-        
+        int i;
+        for(i=0;i<number();i++){
+            if(id.equals(s[i].getId())) break;//tìm vị trí của sinh viên cần xóa
+        }
+        int a=i;
+        for(i=a;i<number()-1;i++){
+            s[i]=s[i+1];//trỏ đối tượng s[i] vào s[i+1] 
+        }
+        s[number()-1]=null;// xóa phần tử cuối, vì phần tử này vẫn đang trỏ đến phần tử cuối của mảng sau khi xóa(2 phần tử cuối đều trỏ cùng 1 ojb)
     }
 
     public static void main(String[] args) {
         // TODO:
-        Student student=new Student();
-        student.setName("Le Trung Kien");
-        student.setId("17020839");
-        student.setGroup("INT22041");
-        student.setEmail("thotang19@gmail.com");
+        
+        Student student=new Student("Le Trung Kien","17020839","thotang19@gmail.com");
         System.out.println(student.getName());
         student.getInfo();
-        Student s0=new Student("s0","0","em");
+        Student s0=new Student("s0","0","email");
         s0.setGroup("0");
-        Student s1=new Student("s1","1","em");
+        Student s1=new Student("s1","1","email");
         s1.setGroup("1");
-        Student s2=new Student("s2","2","em");
-        s0.setGroup("2");
+        Student s2=new Student("s2","2","email");
+        s2.setGroup("2");
+        Student s11=new Student("s11","11","email");
+        s11.setGroup("1");
+        Student s00=new Student("s00","00","email");
+        s00.setGroup("0");
         StudentManagement sm=new StudentManagement();
-        sm.s[0]=s0;
-        sm.s[1]=s1;
-        sm.s[2]=s2;
+        sm.s[3]=s0;
+        sm.s[4]=s1;
+        sm.s[0]=s2;
+        sm.s[1]=s11;
+        sm.s[2]=s00;
         sm.studentsByGroup();
+        System.out.println("Tong so sinh vien: "+sm.number());
+        System.out.println("///////");
+        sm.removeStudent("1");
+        sm.studentsByGroup();
+        System.out.println("Tong so sinh vien: "+sm.number());
     }
 }
