@@ -17,12 +17,12 @@ public class StudentManagement {
         Student x=new Student();
         int i;
         x=s[0];
-        System.out.println("Ten lop: "+s[0].getGroup());
+        System.out.println("Ten lop: "+s[0].getGroup());//in lớp của s[0]
         for(i=0;i<number();i++){
             if(!sameGroup(x,s[i])){
                 System.out.println("Ten lop: "+s[i].getGroup());
-                x=s[i];
-                i--;
+                x=s[i];//x trỏ đến s[i]
+                i--;//lùi 1 bước để getInfo()
             } else{
                 s[i].getInfo();
             }
