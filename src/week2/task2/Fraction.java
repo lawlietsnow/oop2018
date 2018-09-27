@@ -31,7 +31,8 @@ public class Fraction {
         this.denominator=denominator;
     }
     
-    /*public Fraction simply(Fraction x){
+    /*public Fraction simply(Fraction x){	
+    	//hàm tối giản
         int i=Task1.gcd(x.numerator,x.denominator);
         Fraction s=new Fraction(x.numerator,this.denominator);
         s.numerator=x.numerator/i;
@@ -88,7 +89,7 @@ public class Fraction {
     }
     
     public boolean equals(Object obj){
-		if(this.numerator/obj.numerator==this.denominator/obj.denominator) return true;
+		if(this.numerator/((Fraction)obj).numerator==this.denominator/((Fraction)obj).denominator) return true;
 		else return false;
         //return simply(this).numerator==simply((Fraction) obj).numerator&&simply(this).denominator==simply((Fraction) obj).denominator;
     }
