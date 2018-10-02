@@ -1,6 +1,6 @@
 package week2.task2;
 
-//import week2.task1.Task1;//để dùng đc gcd(nếu dùng hàm simply())
+//import week2.task1.Task1;
 
 
 public class Fraction {
@@ -31,8 +31,7 @@ public class Fraction {
         this.denominator=denominator;
     }
     
-    /*public Fraction simply(Fraction x){	
-    	//hàm tối giản
+    /*public Fraction simply(Fraction x){
         int i=Task1.gcd(x.numerator,x.denominator);
         Fraction s=new Fraction(x.numerator,this.denominator);
         s.numerator=x.numerator/i;
@@ -89,7 +88,7 @@ public class Fraction {
     }
     
     public boolean equals(Object obj){
-		if(this.numerator/((Fraction)obj).numerator==this.denominator/((Fraction)obj).denominator) return true;
+		if(this.numerator/obj.numerator==this.denominator/obj.denominator) return true;
 		else return false;
         //return simply(this).numerator==simply((Fraction) obj).numerator&&simply(this).denominator==simply((Fraction) obj).denominator;
     }
