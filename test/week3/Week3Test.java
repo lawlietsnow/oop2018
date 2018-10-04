@@ -13,40 +13,37 @@ import static org.junit.Assert.*;
  * @author thota
  */
 public class Week3Test {
-    
-    public Week3Test() {
-    }
 
     @Test
     public void testMax() {
-        System.out.println("max");
-        int m = 5;
-        int n = 3;
-        int expResult = 6;
-        int result = Week3.max(m, n);
-        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        assertEquals(5, Week3.max(-5,5));
+        assertEquals(999, Week3.max(-9999,999));
+        assertEquals(1, Week3.max(0,1));
+        assertEquals(9, Week3.max(3,9));
+        assertEquals(55, Week3.max(3,55));
     }
 
     @Test
     public void testMinOfArray() {
-        System.out.println("minOfArray");
-        int[] array = null;
-        int expResult = 0;
-        int result = Week3.minOfArray(array);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        int a1[]={0,1,2,3,4,5};
+        int a2[]={5,4,3,2,1,0};
+        int a3[]={1,3,5,7,8,4};
+        int a4[]={0,0,0,0,0,0};
+        int a5[]={1,1,2,3,4,5};
+        assertEquals(0, Week3.minOfArray(a1));
+        assertEquals(0, Week3.minOfArray(a2));
+        assertEquals(1, Week3.minOfArray(a3));
+        assertEquals(0, Week3.minOfArray(a4));
+        assertEquals(1, Week3.minOfArray(a5));
     }
 
     @Test
     public void testCalculateBMI() {
-        System.out.println("calculateBMI");
-        double weight = 0.0;
-        double height = 0.0;
-        String expResult = "";
-        String result = Week3.calculateBMI(weight, height);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        assertEquals("Binh thuong",Week3.calculateBMI(65, 1.7));
+        assertEquals("Beo Phi",Week3.calculateBMI(90,1.8));
+        assertEquals("Thieu can",Week3.calculateBMI(40, 1.59));
+        assertEquals("Binh thuong",Week3.calculateBMI(57,1.62));
+        assertEquals("Binh thuong",Week3.calculateBMI(50.5, 1.6));
     }
     
 }
