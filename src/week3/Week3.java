@@ -27,10 +27,10 @@ public class Week3 {
         // TODO: Viết chương trình tính chỉ số BMI và in ra kết quả đánh giá
     	double bmi;
     	bmi=weight/(height*height);
-    	if(bmi<18.5) System.out.println("Thieu can");
-    	else if(bmi>=18.5&&bmi<23) System.out.println("Binh thuong");
-    	else if(bmi>=23.5&&bmi<24.99) System.out.println("Thua can");
-    	else System.out.println("Beo phi");
-        return null;
+    	if(bmi<18.5) return ("Thieu can");
+    	else if(bmi>=18.5&&bmi<23) return ("Binh thuong");
+    	else if(bmi>=23.5&&bmi<24.99) return ("Thua can");
+    	else return ("Beo phi");
+       
     }
 }
