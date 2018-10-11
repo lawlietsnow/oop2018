@@ -13,7 +13,7 @@ public class CamThanhPhong extends Cam {
     
     @Override
     public void nhanXet(){
-        System.out.println("Gia ca\nQua to\nVi ngot, ngon\nMua thu hoach dai");
+        System.out.println("Gia ca\nQua to\nVi ngot, ngon\nMua thu hoach dai\nDac san cua Viet Nam");
     }
 
     

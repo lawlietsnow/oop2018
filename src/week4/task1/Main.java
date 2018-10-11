@@ -12,6 +12,25 @@ package week4.task1;
 public class Main {
     public static void main(String[] args) {
         CamThanhPhong c=new CamThanhPhong();
-        System.out.println(c.getGiaBan());
+        Cam cam=new Cam();
+        HoaQua h=new HoaQua();
+        Tao tao=new Tao();
+        h.setTongSanPham(1);
+        h.setSanLuongNhapKhau(12345);
+        h.setSanLuongXuatKhau(555);
+        cam.setTongSanPham(1);
+        cam.setSanLuongNhapKhau(12345);
+        cam.setSanLuongXuatKhau(555);
+        cam.setColor("Vang");
+        cam.setGiaBan(2222);
+        c.setTongSanPham(1);
+        c.setSanLuongNhapKhau(12345);
+        c.setSanLuongXuatKhau(555);
+        c.setTongSanPham(1);
+        c.setSanLuongNhapKhau(12345);
+        c.setSanLuongXuatKhau(555);
+        c.setColor("Vang");
+        c.setGiaBan(2222);
+        
     }
 }
