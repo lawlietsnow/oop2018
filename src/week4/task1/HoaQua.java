@@ -13,6 +13,16 @@ public class HoaQua {
     int tongSanPham;
     float sanLuongNhapKhau;
     float sanLuongXuatKhau;
+    String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
 
     public void setSanLuongNhapKhau(float sanLuongNhapKhau) {
         this.sanLuongNhapKhau = sanLuongNhapKhau;

@@ -33,4 +33,7 @@ public class Shape {
     public void setFilled(boolean filled){
         this.filled=filled;
     }
+    public String toString(){
+        return "Shape";
+    }
 }

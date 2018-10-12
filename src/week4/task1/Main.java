@@ -31,6 +31,6 @@ public class Main {
         c.setSanLuongXuatKhau(555);
         c.setColor("Vang");
         c.setGiaBan(2222);
-        
+        System.out.println("Task1");
     }
 }

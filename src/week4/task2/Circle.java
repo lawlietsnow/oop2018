@@ -19,14 +19,19 @@ public class Circle extends Shape {
         this.radius = radius;
     }
     public Circle(double radius,String color,boolean filled){
+        super(color,filled);
+        
         this.radius=radius;
-        this.setColor(color);
-        this.setFilled(filled);
+        
     }
     public double getArea(){
         return PI*radius*radius;
     }
     public double getPerimeter(){
         return 2*PI*radius;
+    }
+    @Override
+    public String toString(){
+        return "Circle";
     }
 }
