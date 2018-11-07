@@ -3,9 +3,7 @@ package week9;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,18 +38,22 @@ public class Utils {
         } catch (IOException ex) {
             System.out.println(ex);
         }
+    } 
+    public static void writeContentToFileWithoutOverriding(String path){
+        
+        try {
+            File file= new File (path);
+            FileWriter fw= new FileWriter(file.getName(),true);
+            BufferedWriter bw=new BufferedWriter(fw);
+            BufferedWriter b=new BufferedWriter(new FileWriter((new File(path).getName())));
+            String s="\nThem vao cuoi\nThem vao cuoi 2";
+            bw.write(s);
+            bw.close();
+            
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
-//    public static void writeContentToFile(String path){
-//        try {
-//            FileOutputStream fout = new FileOutputStream(new File(path));
-//            String s="sau khi ghi de\nsau khi ghi de\n.........";
-//            fout.write(s.getBytes());
-//        } catch (FileNotFoundException ex) {
-//            System.out.println(ex);
-//        } catch (IOException ex) {
-//            System.out.println(ex);
-//        }
-//    }
-//     
+    
 }
 
