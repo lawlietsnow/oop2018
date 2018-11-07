@@ -31,7 +31,9 @@ public class Utils {
     }
     public static void writeContentToFile(String path){
         try {
-            BufferedWriter bw=new BufferedWriter(new FileWriter(path));
+            File file=new File(path);
+            FileWriter fw=new FileWriter(file.getName(),false);
+            BufferedWriter bw=new BufferedWriter(fw);
             String s="Dong 1 sau khi ghi de\nDong 2 sau khi ghi de";
             bw.write(s);
             bw.close();
@@ -45,7 +47,6 @@ public class Utils {
             File file= new File (path);
             FileWriter fw= new FileWriter(file.getName(),true);
             BufferedWriter bw=new BufferedWriter(fw);
-            BufferedWriter b=new BufferedWriter(new FileWriter((new File(path).getName())));
             String s="\nThem vao cuoi\nThem vao cuoi 2";
             bw.write(s);
             bw.close();
