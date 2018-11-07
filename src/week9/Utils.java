@@ -55,6 +55,10 @@ public class Utils {
             System.out.println(ex);
         }
     }
+    public static File findFileByName(String folderPath,String fileName)throws IOException{
+        
+        return new File(folderPath+fileName);
+    }
     
 }
 
