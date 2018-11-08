@@ -7,13 +7,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Utils {
 
     public static String readContentFromFile(String path){
-        String s="";
+        String s=null;
         try {
             BufferedReader breader= new BufferedReader(new FileReader(path));
             String str=breader.readLine();
@@ -55,7 +53,7 @@ public class Utils {
             System.out.println(ex);
         }
     }
-    public static File findFileByName(String folderPath,String fileName)throws IOException{
+    public static File findFileByName(String folderPath,String fileName){
         
         return new File(folderPath+fileName);
     }
