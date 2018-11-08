@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Utils {
 
     public static String readContentFromFile(String path){
-        String s=null;
+        String s="";
         try {
             BufferedReader breader= new BufferedReader(new FileReader(path));
             String str=breader.readLine();
