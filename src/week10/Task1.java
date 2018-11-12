@@ -42,12 +42,16 @@ public class Task1 {
             Logger.getLogger(Task2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+    public String findFunctionByName(String name){
         
+        return null;
     }
     public static void main(String[] args) {
         File path=new File("src\\week9\\Utils.java");
         Task1 ex=new Task1();
         List<String> list=ex.getAllFunctions(path);
-        for(int i=0;i<list.size();i++) System.out.println(list.get(i)+"\n///////////");
+        System.out.println("size of list: "+list.size());
+        for(int i=0;i<list.size();i++) System.out.println(list.get(i));
     }
 }
