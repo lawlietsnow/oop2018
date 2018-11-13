@@ -46,13 +46,49 @@ public class Task1 {
     }
     public String findFunctionByName(String name){
             String nameMethod;
-            String s,s0;
-            ArrayList<String>listName=new ArrayList<>();
+            int i;
+            int b=1,n=0;
+            String s,s0="",str="",traVe="asdasdsa   ";
+            BufferedReader br;
+            ArrayList<String> listName=new ArrayList<>();
             nameMethod=name.substring(0, name.indexOf('('));
             s=name.substring(name.indexOf('(')+1, name.indexOf(')'));
-            System.out.println(s);
+            for(i=0;i<s.length();i++){
+                if(s.charAt(i)!=',') s0+=s.charAt(i);
+                
+                if(s.charAt(i)==','){
+                    listName.add(s0);
+                    s0="";
+                }
+            }
+            for(i=s.length()-1;i>=0;i--) if(s.charAt(i)==',')break;
+            listName.add(s.substring(i+1));
+        try {
+            br=new BufferedReader(new FileReader("src\\week9\\Utils.java"));
+            str=br.readLine();
+            while(str!=null){
+                for(i=0;i<listName.size();i++) if(!str.contains(listName.get(i))) b=0;
+                if(str.contains(nameMethod)&&b==1){
+                    while(true){
+                        if(str.indexOf("{")!=-1) n++;
+                        if(str.indexOf("}")!=-1) n--;
+                        traVe+=str+"\n";
+                        if(n==0)break;
+                        str=br.readLine();
+                    }
+                }
+                str=br.readLine();
+                
+            }
             
-        return null;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Task1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Task1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(i=0;i<listName.size();i++)    System.out.println(listName.get(i));
+        System.out.println(nameMethod);
+        return traVe;
     }
     public static void main(String[] args) {
         File path=new File("src\\week9\\Utils.java");
@@ -60,6 +96,7 @@ public class Task1 {
         List<String> list=ex.getAllFunctions(path);
         System.out.println("size of list: "+list.size());
         for(int i=0;i<list.size();i++) System.out.print(list.get(i));
-        ex.findFunctionByName("findFileByName(String,String)");
+        //ex.findFunctionByName("findFileByName(String,String)");
+        System.out.println(ex.findFunctionByName("findFileByName(String,String)"));
     }
 }
