@@ -27,7 +27,7 @@ public class Task1 {
                     while(true){
                         if(s.indexOf('{')!=-1) n++;
                         if(s.indexOf('}')!=-1) n--;
-                        str+="\n"+s;
+                        str+=s+"\n";
                         if(n==0)break;
                         s=br.readLine();
                     }
@@ -46,7 +46,11 @@ public class Task1 {
     }
     public String findFunctionByName(String name){
             String nameMethod;
+            String s,s0;
             ArrayList<String>listName=new ArrayList<>();
+            nameMethod=name.substring(0, name.indexOf('('));
+            s=name.substring(name.indexOf('(')+1, name.indexOf(')'));
+            System.out.println(s);
             
         return null;
     }
@@ -56,5 +60,6 @@ public class Task1 {
         List<String> list=ex.getAllFunctions(path);
         System.out.println("size of list: "+list.size());
         for(int i=0;i<list.size();i++) System.out.print(list.get(i));
+        ex.findFunctionByName("findFileByName(String,String)");
     }
 }
