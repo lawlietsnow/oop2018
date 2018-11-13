@@ -22,17 +22,18 @@ public class Task1 {
             s=br.readLine();
             while(s!=null){
                 str="";
-                if(s.indexOf("static")!=-1){
+                if(s.contains("static")){
                     n=0;
                     while(true){
                         if(s.indexOf('{')!=-1) n++;
                         if(s.indexOf('}')!=-1) n--;
-                        if(n==0)break;
                         str+="\n"+s;
+                        if(n==0)break;
                         s=br.readLine();
                     }
+                } else {
                 }
-                if(str!="") list.add(str);
+                if(!"".equals(str)) list.add(str);
                 s=br.readLine();
             }
             
@@ -44,7 +45,9 @@ public class Task1 {
         return list;
     }
     public String findFunctionByName(String name){
-        
+            String nameMethod;
+            ArrayList<String>listName=new ArrayList<>();
+            
         return null;
     }
     public static void main(String[] args) {
@@ -52,6 +55,6 @@ public class Task1 {
         Task1 ex=new Task1();
         List<String> list=ex.getAllFunctions(path);
         System.out.println("size of list: "+list.size());
-        for(int i=0;i<list.size();i++) System.out.println(list.get(i));
+        for(int i=0;i<list.size();i++) System.out.print(list.get(i));
     }
 }
