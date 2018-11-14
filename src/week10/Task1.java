@@ -11,6 +11,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Task1 {
+    List<String> cutStr(String s){
+        List<String> listName=new ArrayList<>();
+        String str,s0="";
+        int i;
+        str=s.substring(s.indexOf('(')+1,s.indexOf(')'));
+        for(i=0;i<str.length();i++){
+            if(str.charAt(i)!=',') s0+=str.charAt(i);
+            if(str.charAt(i)==','){
+                listName.add(s0);
+                s0="";
+            }
+        }
+        for(i=str.length()-1;i>=0;i--) if(str.charAt(i)==',')break;
+        listName.add(str.substring(i+1));
+        return listName;
+    }
     List<String>getAllFunctions(File path){
         List<String> list=new ArrayList<>();
         BufferedReader br;
@@ -96,6 +112,9 @@ public class Task1 {
         for(int i=0;i<list.size();i++) System.out.print(list.get(i));
         ex.findFunctionByName("findFileByName(String,String)");
         System.out.println("************task2.2***********");
-        System.out.println(ex.findFunctionByName("writeContentToFileWithoutOverriding(String)"));
+        System.out.println(ex.findFunctionByName("writeContentToFileWithoutOverriding(String,String,String,String)"));
+        list=ex.cutStr("writeContentToFileWithoutOverriding(String)");
+        for(int i=0;i<list.size();i++)System.out.println(list.get(i));
+        System.out.println(list.size());
     }
 }
