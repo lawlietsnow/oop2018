@@ -54,7 +54,7 @@ public class Utils {
         }
     }
     public static void writeContentToFileWithoutOverriding(String path,String abc){
-        System.out.println("Do not thing");
+//        System.out.println("Do not thing");
     }
     public static void writeContentToFileWithoutOverriding(String path,String a,String b,String c ,int n){
         System.out.println("Do not thing abc");

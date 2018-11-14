@@ -11,6 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Task1 {
+    final String single="//";
+    final String multiOpen="/*";
+    final String multiClose="*/";
     List<String>getAllFunctions(File path){
         List<String> list=new ArrayList<>();
         BufferedReader br;
@@ -22,7 +25,12 @@ public class Task1 {
             s=br.readLine();
             while(s!=null){
                 str="";
-                if(s.contains("static")){
+                if(s.contains(single)) s=br.readLine();
+                else if(s.contains(multiOpen)) {
+                    while(!s.contains(multiClose)) s=br.readLine();
+                }
+                else{
+                    if(s.contains("static")){
                     n=0;
                     while(true){
                         if(s.indexOf('{')!=-1) n++;
@@ -31,9 +39,9 @@ public class Task1 {
                         if(n==0)break;
                         s=br.readLine();
                     }
-                } else {
-                }
+                } 
                 if(!"".equals(str)) list.add(str);
+                }
                 s=br.readLine();
             }
             
@@ -75,23 +83,19 @@ public class Task1 {
             br=new BufferedReader(new FileReader("src\\week9\\Utils.java"));
             str=br.readLine();
             while(str!=null){
-//                if(!str.contains(nameMethod)) b=0;
-//                else if(str.contains(nameMethod)){
-//                    listName1=cutStr(str);
-//                }
-//                if(listName.size()==listName1.size()){
-//                    for(i=0;i<listName.size();i++) if(listName1.get(i).indexOf(listName.get(i))!=-1) {
-//                        b=0;
-//                        break;
-//                    }
-//                }else if(listName.size()!=listName1.size()) b=0;
-                if(str.contains(nameMethod)){
+                if(str.contains(single)) str=br.readLine();
+                else if(str.contains(multiOpen)){
+                    while(!str.contains(multiClose)) str=br.readLine();
+                }
+                else{
+                    if(str.contains(nameMethod)){
                     listName1=cutStr(str);
                     if(listName1.size()==listName.size()){
                         t=1;
                         for(i=0;i<listName.size();i++) if(!listName1.get(i).contains(listName.get(i))) t=0;
                         
                     }
+                }
                 }
                 if(t==1){
                     n=0;
@@ -121,7 +125,10 @@ public class Task1 {
         System.out.println("size of list: "+list.size());
         for(int i=0;i<list.size();i++) System.out.print(list.get(i));
         System.out.println("***********task 1.2*********");
-        String s=ex.findFunctionByName("writeContentToFileWithoutOverriding(String,String,String,String,int)");
+        String s=ex.findFunctionByName("writeContentToFileWithoutOverriding(String,String)");
         System.out.println(s);
+        
+        
+        
     }
 }
