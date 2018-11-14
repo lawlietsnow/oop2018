@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Utils {
-
+    public static int n;
     public static String readContentFromFile(String path){
         String s="";
         try {
@@ -53,10 +53,10 @@ public class Utils {
             System.out.println(ex);
         }
     }
-    public static void writeContentToFileWithoutOverriding(String path,String abc){
+    public  void writeContentToFileWithoutOverriding(String path,String abc){
 //        System.out.println("Do not thing");
     }
-    public static void writeContentToFileWithoutOverriding(String path,String a,String b,String c ,int n){
+    public void writeContentToFileWithoutOverriding(String path,String a,String b,String c ,int n){
         System.out.println("Do not thing abc");
     }
     public static File findFileByName(String folderPath,String fileName){

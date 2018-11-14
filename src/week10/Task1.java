@@ -30,7 +30,7 @@ public class Task1 {
                     while(!s.contains(multiClose)) s=br.readLine();
                 }
                 else{
-                    if(s.contains("static")){
+                    if(s.contains("static")&&s.indexOf('(')!=-1&&s.indexOf(')')!=-1&&s.indexOf(';')==-1){
                     n=0;
                     while(true){
                         if(s.indexOf('{')!=-1) n++;
