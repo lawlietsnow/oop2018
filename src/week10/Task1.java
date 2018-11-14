@@ -48,7 +48,7 @@ public class Task1 {
             String nameMethod;
             int i;
             int b=1,n=0;
-            String s,s0="",str="",traVe="asdasdsa   ";
+            String s,s0="",str="",traVe="";
             BufferedReader br;
             ArrayList<String> listName=new ArrayList<>();
             nameMethod=name.substring(0, name.indexOf('('));
@@ -67,8 +67,8 @@ public class Task1 {
             br=new BufferedReader(new FileReader("src\\week9\\Utils.java"));
             str=br.readLine();
             while(str!=null){
-                for(i=0;i<listName.size();i++) if(!str.contains(listName.get(i))) b=0;
-                if(str.contains(nameMethod)&&b==1){
+                if(str.contains(nameMethod)){
+                    for(i=0;i<listName.size();i++) if(!str.contains(listName.get(i))) b=0;
                     while(true){
                         if(str.indexOf("{")!=-1) n++;
                         if(str.indexOf("}")!=-1) n--;
@@ -86,8 +86,6 @@ public class Task1 {
         } catch (IOException ex) {
             Logger.getLogger(Task1.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(i=0;i<listName.size();i++)    System.out.println(listName.get(i));
-        System.out.println(nameMethod);
         return traVe;
     }
     public static void main(String[] args) {
@@ -96,7 +94,8 @@ public class Task1 {
         List<String> list=ex.getAllFunctions(path);
         System.out.println("size of list: "+list.size());
         for(int i=0;i<list.size();i++) System.out.print(list.get(i));
-        //ex.findFunctionByName("findFileByName(String,String)");
-        System.out.println(ex.findFunctionByName("findFileByName(String,String)"));
+        ex.findFunctionByName("findFileByName(String,String)");
+        System.out.println("************task2.2***********");
+        System.out.println(ex.findFunctionByName("writeContentToFileWithoutOverriding(String)"));
     }
 }
