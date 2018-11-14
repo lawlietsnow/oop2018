@@ -53,6 +53,12 @@ public class Utils {
             System.out.println(ex);
         }
     }
+    public static void writeContentToFileWithoutOverriding(String path,String abc){
+        System.out.println("Do not thing");
+    }
+    public static void writeContentToFileWithoutOverriding(String path,String a,String b,String c ,int n){
+        System.out.println("Do not thing abc");
+    }
     public static File findFileByName(String folderPath,String fileName){
         return new File(folderPath+fileName);
     }
