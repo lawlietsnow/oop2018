@@ -69,15 +69,24 @@ public class Task1 {
             listName.add(str.substring(i+1));
         return listName;
     }
+    public boolean sameName(String name,String line){
+        int i;
+        name=name.substring(0,name.indexOf('('));
+        if(line.indexOf('(')!=-1) line=line.substring(0, line.indexOf('('));
+        else return false;
+        for(i=line.length()-1;i>=0;i--){
+            if(line.charAt(i)==' ') break;
+        }
+        line=line.substring(i+1);
+        return line.equals(name);
+    }
     public String findFunctionByName(String name){
-            String nameMethod;
             int i;
             int n=0,t=0;
             String s,s0="",str="",traVe="";
             BufferedReader br;
             List<String> listName;
             List<String> listName1=null;
-            nameMethod=name.substring(0, name.indexOf('('));
             listName=cutStr(name);
         try {
             br=new BufferedReader(new FileReader("src\\week9\\Utils.java"));
@@ -88,14 +97,14 @@ public class Task1 {
                     while(!str.contains(multiClose)) str=br.readLine();
                 }
                 else{
-                    if(str.contains(nameMethod)){
-                    listName1=cutStr(str);
-                    if(listName1.size()==listName.size()){
-                        t=1;
-                        for(i=0;i<listName.size();i++) if(!listName1.get(i).contains(listName.get(i))) t=0;
-                        
+                    if(sameName(name,str)){
+                        listName1=cutStr(str);
+                        if(listName1.size()==listName.size()){
+                            t=1;
+                            for(i=0;i<listName.size();i++) if(!listName1.get(i).contains(listName.get(i))) t=0;
+
+                        }
                     }
-                }
                 }
                 if(t==1){
                     n=0;
@@ -125,7 +134,7 @@ public class Task1 {
         System.out.println("size of list: "+list.size());
         for(int i=0;i<list.size();i++) System.out.print(list.get(i));
         System.out.println("***********task 1.2*********");
-        String s=ex.findFunctionByName("writeContentToFileWithoutOverriding(String,String)");
+        String s=ex.findFunctionByName("writeContentToFile(String)");
         System.out.println(s);
         
         
