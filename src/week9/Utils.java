@@ -53,6 +53,18 @@ public class Utils {
             System.out.println(ex);
         }
     }
+    public static void writeContentToFile1(String path){
+        try {
+            File file=new File(path);
+            FileWriter fw=new FileWriter(file.getName(),false);
+            BufferedWriter bw=new BufferedWriter(fw);
+            String s="Dong 1 sau khi ghi de\nDong 2 sau khi ghi de";
+            bw.write(s);
+            bw.close();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
     public  void writeContentToFileWithoutOverriding(String path,String abc){
 //        System.out.println("Do not thing");
     }

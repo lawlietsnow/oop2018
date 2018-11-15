@@ -52,7 +52,7 @@ public class Task1 {
         }
         return list;
     }
-    public List<String> cutStr(String s){
+    public List<String> cutStr(String s){ //cắt lấy danh sách các kiểu tham số truyền vào
         List<String> listName=new ArrayList<>();
         int i;
         String str;
@@ -69,7 +69,7 @@ public class Task1 {
             listName.add(str.substring(i+1));
         return listName;
     }
-    public boolean sameName(String name,String line){
+    public boolean sameName(String name,String line){ //so sánh tên phương thức
         int i;
         name=name.substring(0,name.indexOf('('));
         if(line.indexOf('(')!=-1) line=line.substring(0, line.indexOf('('));
